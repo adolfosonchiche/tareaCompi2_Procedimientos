@@ -1,0 +1,131 @@
+/*importar librerias o archivos utilizados*/
+package com.adolfo.analizadores;
+
+import java_cup.runtime.*;
+import java.util.List;
+import java.util.ArrayList;
+import com.adolfo.analizadores.Token;
+/*podemos agregar codigo java aqui (y el nombre de una clase)*/
+
+parser code {:
+
+    private List<String> errorSintactico;
+    //private List<ListaCapas> datosList;
+    private int contador = 0;
+
+	public Parser (Lexico lex) {
+		super(lex);
+        this.errorSintactico = new ArrayList();
+        //this.datosList = new ArrayList();
+	}
+
+    /*public void report_error(String message, Object info) {
+		System.out.println("reporterror");
+	}
+	public void report_fatal_error(String message, Object info) {
+		//System.out.println("reportfatal");
+	}
+	public void report_fatal_error(Symbol cur) {
+		System.out.println("unrecovered_syntax_error");
+	}*/
+    
+    @Override
+    public void syntax_error(Symbol st) {
+        Token token = (Token) st.value;
+        //report_error("Error Sintactico con el  Token:"+ token.getLexema()+" este no pertenece a la estructura - linea: "+token.getLine()+" - columna: "+token.getColumna() + "\n",null);
+
+        System.out.println("err: " + token.getLexema() + " este no pertenece a la estructura - linea: " + token.getLine() + ", columna: " + token.getColumna());
+        errorSintactico.add(String.format("Error Sintactico lexema: %s  linea: %d  columna: %d. no se esperaba ese token.", token.getLexema(), token.getLine(), token.getColumna()));
+    }
+
+    protected int error_sync_size() {
+		return 1;
+	}
+    //retorna las variables declaradas, que se van a utilizar en otras clases
+       /*  public List<String> getErrorSintactico(){
+	        return errorSintactico;
+	    }
+
+        public List<ListaSolicitud> getDatosList(){
+	        return datosList;
+	    }*/
+    
+:}
+/*simbolos terminales*/
+terminal /*Token*/ PAREIN, PAREOUT, DOSP, COMA, IGUAL, ID, PUNTOCOMA,
+                PARAMETRO, NUMEROS, PROGRAMA, FUNCION, END, ENTERO, BEGIN;
+
+/*simbolos no terminales*/
+non terminal    s, pr, va, vva, mv, c, var, exp, xa, xxa;
+
+
+/* Producciones siendo A el inicial*/
+start with s;
+
+/* S -> prog id PR */
+s ::= PROGRAMA ID pr                              {:System.out.println("inicio.. " + contador); contador++;:} 
+    | error  s                               {: :} 
+    ;
+
+/*pr -> pr proc id parin va mv
+pr -> pr begin var 
+pr-> lambda */
+pr ::= pr FUNCION ID PAREIN va mv   {:System.out.println("pr.. funcion id parin va" + contador); contador++;:}
+    | pr BEGIN var                  {:System.out.println("pr.. begin" + contador); contador++;:}
+    | /*lambda*/                    {:System.out.println("pr.. lambda" + contador); contador++;:}
+    ;
+
+/*va-> param vva
+va -> pareout*/
+va ::= PARAMETRO vva                {:System.out.println("va.. parm vva " + contador); contador++;:}
+    | PAREOUT                       {:System.out.println("va.. parout" + contador); contador++;:} 
+    ;
+
+/*vva -> coma param vva
+vva -> parout*/
+vva ::= COMA  PARAMETRO vva         {:System.out.println("vva..coma parm vva " + contador); contador++;:}
+    | PAREOUT                       {:System.out.println("vva..parout " + contador); contador++;:}
+    ;
+
+/*xa-> param xxa
+xa -> pareout*/
+xa ::= PARAMETRO xxa                {:System.out.println("xa..parm " + contador); contador++;:}
+    | NUMEROS xxa                   {:System.out.println("xa.. num" + contador); contador++;:}
+    | ID xxa                        {:System.out.println("xa.. id" + contador); contador++;:}
+    | PAREOUT                       {:System.out.println("xa.. parout" + contador); contador++;:}
+    ;
+
+/*xxa -> coma param xxa
+xxa -> parout*/
+xxa ::= COMA  PARAMETRO xxa         {:System.out.println("xxa..coma param " + contador); contador++;:}
+    | COMA NUMEROS xxa              {:System.out.println("xxa..coma num" + contador); contador++;:}
+    | COMA ID xxa                   {:System.out.println("xxa.. coma id" + contador); contador++;:}
+    | PAREOUT                       {:System.out.println("xxa.. parout" + contador); contador++;:}
+    ;
+
+/*mv -> ID parin va c*/ 
+mv ::= ID PAREIN xa c               {:System.out.println("mv.. di parin" + contador); contador++;:}
+    ;
+
+/*c-> puntocoma END
+c -> puntocoma mv 
+c-> mv
+c-> END */
+c ::= PUNTOCOMA END             {:System.out.println("c.. puntocoma end" + contador); contador++;:}
+    | PUNTOCOMA mv              {:System.out.println("c..puntocoma mv " + contador); contador++;:}
+    | mv                        {:System.out.println("c.. mv" + contador); contador++;:}
+    | END                       {:System.out.println("c.. end" + contador); contador++;:}
+    ;
+
+/*var -> id exp var
+var -> END*/
+var ::= ID exp var              {:System.out.println("var..id exp var " + contador); contador++;:}
+    | END                       {:System.out.println("var.. end" + contador); contador++;:}
+    ;
+
+/*exp -> dosp integer puntocoma
+exp -> dosp igual ID parin va puntocoma */
+exp ::= DOSP ENTERO PUNTOCOMA           {:System.out.println("exp..dosp entero pcoma " + contador); contador++;:}
+    |  PAREIN xa  PUNTOCOMA             {:System.out.println("exp..parin xa puntocoma " + contador); contador++;:}
+    | DOSP IGUAL ID PAREIN xa PUNTOCOMA          {:System.out.println("exo..dosp igual id parin xa putnocoa " + contador); contador++;:}
+    ;

@@ -2,7 +2,12 @@ package com.adolfo.ui;
 
 import com.adolfo.analizadores.Lexico;
 import com.adolfo.analizadores.Parser;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.io.StringReader;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -96,7 +101,20 @@ public class FramePrincipal extends javax.swing.JFrame {
                 Parser pa = new Parser(lexico);
 
                 pa.parse();
+                String arbol = pa.getArbol() + " \n }";
+                graficar(arbol);
                 JOptionPane.showMessageDialog(this, "COMPILO EXITOSAMENTE");
+                
+                Thread.sleep(3000);
+                
+                Runtime rt = Runtime.getRuntime();
+                try {
+                    //Esperamos medio segundo para dar tiempo a que la imagen se genere
+                    rt.exec("nohup display arbol.jpg ");
+                } catch (IOException ex) {
+                    Logger.getLogger(FramePrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
             } catch (Exception e) {
                 System.out.println("error " + e);
             }
@@ -107,6 +125,33 @@ public class FramePrincipal extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void graficar(String arbol) {
+        FileWriter fichero = null;
+        PrintWriter escritor;
+        try {
+            fichero = new FileWriter("graf.dot");
+            escritor = new PrintWriter(fichero);
+            escritor.print(arbol);
+        } catch (Exception e) {
+            System.err.println("Error al escribir el archivo graf.dot");
+        } finally {
+            try {
+                if (null != fichero) {
+                    fichero.close();
+                }
+            } catch (Exception e2) {
+                System.err.println("Error al cerrar el archivo graf.dot");
+            }
+        }
+        try {
+            Runtime rt = Runtime.getRuntime();
+            rt.exec("dot -Tjpg -o arbol.jpg graf.dot");
+        } catch (Exception ex) {
+            System.err.println("Error al generar la imagen para el archivo "
+                    + "graf.dot");
+        }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

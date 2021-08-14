@@ -10,13 +10,19 @@ import com.adolfo.analizadores.Token;
 parser code {:
 
     private List<String> errorSintactico;
-    //private List<ListaCapas> datosList;
+    private List<String> datosList;
     private int contador = 0;
+    private Generador generador;
+    private String arbol;
 
 	public Parser (Lexico lex) {
 		super(lex);
         this.errorSintactico = new ArrayList();
-        //this.datosList = new ArrayList();
+        this.datosList = new ArrayList();
+        this.generador = new Generador();
+        this.arbol = "digraph grafica{\n"
+                + "rankdir=TB;\n"
+                + "node [shape = record, style=filled, fillcolor=seashell2];\n";
 	}
 
     /*public void report_error(String message, Object info) {
@@ -42,17 +48,14 @@ parser code {:
 		return 1;
 	}
     //retorna las variables declaradas, que se van a utilizar en otras clases
-       /*  public List<String> getErrorSintactico(){
-	        return errorSintactico;
+         public String getArbol(){
+	        return arbol;
 	    }
 
-        public List<ListaSolicitud> getDatosList(){
-	        return datosList;
-	    }*/
     
 :}
 /*simbolos terminales*/
-terminal /*Token*/ PAREIN, PAREOUT, DOSP, COMA, IGUAL, ID, PUNTOCOMA,
+terminal Token PAREIN, PAREOUT, DOSP, COMA, IGUAL, ID, PUNTOCOMA,
                 PARAMETRO, NUMEROS, PROGRAMA, FUNCION, END, ENTERO, BEGIN;
 
 /*simbolos no terminales*/
@@ -63,69 +66,95 @@ non terminal    s, pr, va, vva, mv, c, var, exp, xa, xxa;
 start with s;
 
 /* S -> prog id PR */
-s ::= PROGRAMA ID pr                              {:System.out.println("inicio.. " + contador); contador++;:} 
+s ::= PROGRAMA ID:e pr                         {:System.out.println("inicio.. " + contador); contador++;
+                                                arbol += "nodo"+contador +"  [ label =\""+e.getLexema()+"\"];\n";
+                                                String raiz = "nodo"+contador;
+                                                arbol +=  generador.ordenar(raiz, datosList); 
+                                                datosList.clear();
+                                            :} 
     | error  s                               {: :} 
     ;
 
 /*pr -> pr proc id parin va mv
 pr -> pr begin var 
 pr-> lambda */
-pr ::= pr FUNCION ID PAREIN va mv   {:System.out.println("pr.. funcion id parin va" + contador); contador++;:}
-    | pr BEGIN var                  {:System.out.println("pr.. begin" + contador); contador++;:}
-    | /*lambda*/                    {:System.out.println("pr.. lambda" + contador); contador++;:}
+pr ::= pr FUNCION ID:e PAREIN va mv   {:System.out.println("pr.. funcion id parin va" + contador); contador++;
+                                            arbol += "nodo"+contador +"  [ label =\""+e.getLexema()+"\"];\n";
+                                            String raiz = "nodo"+contador;
+                                            arbol += generador.ordenar(raiz, datosList); 
+                                            datosList.clear();
+                                    :}
+    | pr BEGIN var                 
+    | /*lambda*/                   
     ;
 
-/*va-> param vva
-va -> pareout*/
-va ::= PARAMETRO vva                {:System.out.println("va.. parm vva " + contador); contador++;:}
-    | PAREOUT                       {:System.out.println("va.. parout" + contador); contador++;:} 
-    ;
-
-/*vva -> coma param vva
-vva -> parout*/
-vva ::= COMA  PARAMETRO vva         {:System.out.println("vva..coma parm vva " + contador); contador++;:}
-    | PAREOUT                       {:System.out.println("vva..parout " + contador); contador++;:}
-    ;
-
-/*xa-> param xxa
-xa -> pareout*/
-xa ::= PARAMETRO xxa                {:System.out.println("xa..parm " + contador); contador++;:}
-    | NUMEROS xxa                   {:System.out.println("xa.. num" + contador); contador++;:}
-    | ID xxa                        {:System.out.println("xa.. id" + contador); contador++;:}
-    | PAREOUT                       {:System.out.println("xa.. parout" + contador); contador++;:}
-    ;
-
-/*xxa -> coma param xxa
-xxa -> parout*/
-xxa ::= COMA  PARAMETRO xxa         {:System.out.println("xxa..coma param " + contador); contador++;:}
-    | COMA NUMEROS xxa              {:System.out.println("xxa..coma num" + contador); contador++;:}
-    | COMA ID xxa                   {:System.out.println("xxa.. coma id" + contador); contador++;:}
-    | PAREOUT                       {:System.out.println("xxa.. parout" + contador); contador++;:}
-    ;
 
 /*mv -> ID parin va c*/ 
-mv ::= ID PAREIN xa c               {:System.out.println("mv.. di parin" + contador); contador++;:}
+mv ::= ID:e PAREIN xa c               {: contador++;
+                                        String hijo = "nodo"+contador;
+                                        arbol += "nodo"+contador +"  [ label =\""+e.getLexema()+"\"];\n";
+                                        datosList.add(hijo); 
+                                         :}
     ;
 
 /*c-> puntocoma END
 c -> puntocoma mv 
 c-> mv
 c-> END */
-c ::= PUNTOCOMA END             {:System.out.println("c.. puntocoma end" + contador); contador++;:}
-    | PUNTOCOMA mv              {:System.out.println("c..puntocoma mv " + contador); contador++;:}
-    | mv                        {:System.out.println("c.. mv" + contador); contador++;:}
-    | END                       {:System.out.println("c.. end" + contador); contador++;:}
+c ::= PUNTOCOMA END            
+    | PUNTOCOMA mv              
+    | mv                        
+    | END                       
     ;
 
 /*var -> id exp var
 var -> END*/
-var ::= ID exp var              {:System.out.println("var..id exp var " + contador); contador++;:}
-    | END                       {:System.out.println("var.. end" + contador); contador++;:}
+var ::= ID:e exp:e1 var              {:System.out.println("var..id exp var " + contador); contador++;
+                                        String hijo = "nodo"+contador;
+                                        arbol += "nodo"+contador +"  [ label =\""+e.getLexema()+"\"];\n";
+                                        datosList.add(hijo);
+                                        if(!e1.toString().isEmpty()) {
+                                            contador++;
+                                            String dry = "nodo"+contador;
+                                            arbol += "nodo"+contador +"  [ label =\""+e1.getLexema()+"\"];\n";
+                                            arbol += hijo + " -> " + dry + ";\n";
+                                        }
+                                :}
+    | END                       
     ;
 
 /*exp -> dosp integer puntocoma
 exp -> dosp igual ID parin va puntocoma */
-exp ::= DOSP ENTERO PUNTOCOMA           {:System.out.println("exp..dosp entero pcoma " + contador); contador++;:}
-    |  PAREIN xa  PUNTOCOMA             {:System.out.println("exp..parin xa puntocoma " + contador); contador++;:}
-    | DOSP IGUAL ID PAREIN xa PUNTOCOMA          {:System.out.println("exo..dosp igual id parin xa putnocoa " + contador); contador++;:}
+exp ::= DOSP ENTERO PUNTOCOMA           {:System.out.println("exp..dosp entera " + contador);  RESULT = "";:}
+    |  PAREIN xa  PUNTOCOMA             {:System.out.println("exp..paruntocoma " + contador);  RESULT = "";:}
+    | DOSP IGUAL ID:e PAREIN xa PUNTOCOMA      {:System.out.println("exo..dosa " + contador);  RESULT = e.getLexema();:}
+    ;
+
+
+/*va-> param vva
+va -> pareout*/
+va ::= PARAMETRO vva                
+    | PAREOUT                        
+    ;
+
+/*vva -> coma param vva
+vva -> parout*/
+vva ::= COMA  PARAMETRO vva         
+    | PAREOUT                       
+    ;
+
+/*xa-> param xxa
+xa -> pareout*/
+xa ::= PARAMETRO xxa                
+    | NUMEROS xxa                   
+    | ID xxa                        
+    | PAREOUT                       
+    ;
+
+/*xxa -> coma param xxa
+xxa -> parout*/
+xxa ::= COMA  PARAMETRO xxa         
+    | COMA NUMEROS xxa              
+    | COMA ID xxa                   
+    | PAREOUT                       
     ;

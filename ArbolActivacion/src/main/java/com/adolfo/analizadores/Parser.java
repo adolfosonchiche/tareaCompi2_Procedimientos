@@ -36,13 +36,13 @@ public class Parser extends java_cup.runtime.lr_parser {
     unpackFromStrings(new String[] {
     "\000\034\000\002\002\004\000\002\002\005\000\002\002" +
     "\004\000\002\003\010\000\002\003\005\000\002\003\002" +
-    "\000\002\004\004\000\002\004\003\000\002\005\005\000" +
-    "\002\005\003\000\002\012\004\000\002\012\004\000\002" +
-    "\012\004\000\002\012\003\000\002\013\005\000\002\013" +
-    "\005\000\002\013\005\000\002\013\003\000\002\006\006" +
-    "\000\002\007\004\000\002\007\004\000\002\007\003\000" +
-    "\002\007\003\000\002\010\005\000\002\010\003\000\002" +
-    "\011\005\000\002\011\005\000\002\011\010" });
+    "\000\002\006\006\000\002\007\004\000\002\007\004\000" +
+    "\002\007\003\000\002\007\003\000\002\010\005\000\002" +
+    "\010\003\000\002\011\005\000\002\011\005\000\002\011" +
+    "\010\000\002\004\004\000\002\004\003\000\002\005\005" +
+    "\000\002\005\003\000\002\012\004\000\002\012\004\000" +
+    "\002\012\004\000\002\012\003\000\002\013\005\000\002" +
+    "\013\005\000\002\013\005\000\002\013\003" });
 
   /** Access to production table. */
   public short[][] production_table() {return _production_table;}
@@ -56,38 +56,38 @@ public class Parser extends java_cup.runtime.lr_parser {
     "\002\000\010\002\000\016\011\021\012\001\002\000\004" +
     "\011\052\001\002\000\006\011\013\017\015\001\002\000" +
     "\006\004\016\006\017\001\002\000\010\002\ufffd\016\ufffd" +
-    "\021\ufffd\001\002\000\010\002\uffe9\016\uffe9\021\uffe9\001" +
-    "\002\000\012\005\032\011\027\013\030\014\031\001\002" +
+    "\021\ufffd\001\002\000\010\002\ufff5\016\ufff5\021\ufff5\001" +
+    "\002\000\012\005\031\011\027\013\030\014\032\001\002" +
     "\000\006\010\022\020\023\001\002\000\006\011\013\017" +
-    "\015\001\002\000\010\002\uffea\016\uffea\021\uffea\001\002" +
+    "\015\001\002\000\010\002\ufff6\016\ufff6\021\ufff6\001\002" +
     "\000\004\011\025\001\002\000\004\012\024\001\002\000" +
-    "\006\011\uffe8\017\uffe8\001\002\000\004\004\026\001\002" +
-    "\000\012\005\032\011\027\013\030\014\031\001\002\000" +
+    "\006\011\ufff4\017\ufff4\001\002\000\004\004\026\001\002" +
+    "\000\012\005\031\011\027\013\030\014\032\001\002\000" +
+    "\006\005\037\007\035\001\002\000\006\005\037\007\035" +
+    "\001\002\000\010\011\uffea\012\uffea\017\uffea\001\002\000" +
+    "\006\005\037\007\035\001\002\000\004\012\034\001\002" +
+    "\000\006\011\ufff2\017\ufff2\001\002\000\010\011\040\013" +
+    "\041\014\042\001\002\000\010\011\uffec\012\uffec\017\uffec" +
+    "\001\002\000\010\011\uffe6\012\uffe6\017\uffe6\001\002\000" +
     "\006\005\037\007\035\001\002\000\006\005\037\007\035" +
     "\001\002\000\006\005\037\007\035\001\002\000\010\011" +
-    "\ufff4\012\ufff4\017\ufff4\001\002\000\004\012\034\001\002" +
-    "\000\006\011\uffe6\017\uffe6\001\002\000\010\011\040\013" +
-    "\041\014\042\001\002\000\010\011\ufff6\012\ufff6\017\ufff6" +
-    "\001\002\000\010\011\ufff0\012\ufff0\017\ufff0\001\002\000" +
-    "\006\005\037\007\035\001\002\000\006\005\037\007\035" +
-    "\001\002\000\006\005\037\007\035\001\002\000\010\011" +
-    "\ufff2\012\ufff2\017\ufff2\001\002\000\010\011\ufff3\012\ufff3" +
-    "\017\ufff3\001\002\000\010\011\ufff1\012\ufff1\017\ufff1\001" +
-    "\002\000\010\011\ufff7\012\ufff7\017\ufff7\001\002\000\010" +
-    "\011\ufff5\012\ufff5\017\ufff5\001\002\000\004\012\051\001" +
-    "\002\000\006\011\uffe7\017\uffe7\001\002\000\004\004\053" +
-    "\001\002\000\006\005\056\013\054\001\002\000\006\005" +
-    "\072\007\071\001\002\000\004\011\060\001\002\000\004" +
-    "\011\ufffa\001\002\000\010\002\ufffe\016\ufffe\021\ufffe\001" +
-    "\002\000\004\004\061\001\002\000\012\005\032\011\027" +
-    "\013\030\014\031\001\002\000\010\011\060\012\065\017" +
-    "\064\001\002\000\010\002\uffec\016\uffec\021\uffec\001\002" +
-    "\000\010\002\uffeb\016\uffeb\021\uffeb\001\002\000\006\011" +
-    "\060\017\070\001\002\000\010\002\uffef\016\uffef\021\uffef" +
-    "\001\002\000\010\002\uffed\016\uffed\021\uffed\001\002\000" +
-    "\010\002\uffee\016\uffee\021\uffee\001\002\000\004\013\074" +
-    "\001\002\000\004\011\ufff8\001\002\000\004\011\ufffb\001" +
-    "\002\000\006\005\072\007\071\001\002\000\004\011\ufff9" +
+    "\uffe8\012\uffe8\017\uffe8\001\002\000\010\011\uffe9\012\uffe9" +
+    "\017\uffe9\001\002\000\010\011\uffe7\012\uffe7\017\uffe7\001" +
+    "\002\000\010\011\uffed\012\uffed\017\uffed\001\002\000\010" +
+    "\011\uffeb\012\uffeb\017\uffeb\001\002\000\004\012\051\001" +
+    "\002\000\006\011\ufff3\017\ufff3\001\002\000\004\004\053" +
+    "\001\002\000\006\005\055\013\054\001\002\000\006\005" +
+    "\072\007\071\001\002\000\004\011\ufff0\001\002\000\004" +
+    "\011\057\001\002\000\004\004\061\001\002\000\010\002" +
+    "\ufffe\016\ufffe\021\ufffe\001\002\000\012\005\031\011\027" +
+    "\013\030\014\032\001\002\000\010\011\057\012\065\017" +
+    "\064\001\002\000\010\002\ufff8\016\ufff8\021\ufff8\001\002" +
+    "\000\010\002\ufff7\016\ufff7\021\ufff7\001\002\000\006\011" +
+    "\057\017\070\001\002\000\010\002\ufffb\016\ufffb\021\ufffb" +
+    "\001\002\000\010\002\ufff9\016\ufff9\021\ufff9\001\002\000" +
+    "\010\002\ufffa\016\ufffa\021\ufffa\001\002\000\004\013\074" +
+    "\001\002\000\004\011\uffee\001\002\000\004\011\ufff1\001" +
+    "\002\000\006\005\072\007\071\001\002\000\004\011\uffef" +
     "\001\002\000\004\002\001\001\002\000\004\002\uffff\001" +
     "\002" });
 
@@ -105,15 +105,15 @@ public class Parser extends java_cup.runtime.lr_parser {
     "\001\000\004\010\020\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\004\012\032\001\001\000\004\013\046\001\001" +
-    "\000\004\013\045\001\001\000\004\013\035\001\001\000" +
-    "\002\001\001\000\002\001\001\000\002\001\001\000\002" +
+    "\000\004\013\045\001\001\000\002\001\001\000\004\013" +
+    "\035\001\001\000\002\001\001\000\002\001\001\000\002" +
     "\001\001\000\002\001\001\000\002\001\001\000\004\013" +
     "\044\001\001\000\004\013\043\001\001\000\004\013\042" +
     "\001\001\000\002\001\001\000\002\001\001\000\002\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
-    "\000\002\001\001\000\002\001\001\000\004\004\054\001" +
-    "\001\000\004\005\072\001\001\000\004\006\056\001\001" +
-    "\000\002\001\001\000\002\001\001\000\002\001\001\000" +
+    "\000\002\001\001\000\002\001\001\000\004\004\055\001" +
+    "\001\000\004\005\072\001\001\000\002\001\001\000\004" +
+    "\006\057\001\001\000\002\001\001\000\002\001\001\000" +
     "\004\012\061\001\001\000\006\006\062\007\065\001\001" +
     "\000\002\001\001\000\002\001\001\000\004\006\066\001" +
     "\001\000\002\001\001\000\002\001\001\000\002\001\001" +
@@ -160,13 +160,19 @@ public class Parser extends java_cup.runtime.lr_parser {
 
 
     private List<String> errorSintactico;
-    //private List<ListaCapas> datosList;
+    private List<String> datosList;
     private int contador = 0;
+    private Generador generador;
+    private String arbol;
 
 	public Parser (Lexico lex) {
 		super(lex);
         this.errorSintactico = new ArrayList();
-        //this.datosList = new ArrayList();
+        this.datosList = new ArrayList();
+        this.generador = new Generador();
+        this.arbol = "digraph grafica{\n"
+                + "rankdir=TB;\n"
+                + "node [shape = record, style=filled, fillcolor=seashell2];\n";
 	}
 
     /*public void report_error(String message, Object info) {
@@ -192,13 +198,10 @@ public class Parser extends java_cup.runtime.lr_parser {
 		return 1;
 	}
     //retorna las variables declaradas, que se van a utilizar en otras clases
-       /*  public List<String> getErrorSintactico(){
-	        return errorSintactico;
+         public String getArbol(){
+	        return arbol;
 	    }
 
-        public List<ListaSolicitud> getDatosList(){
-	        return datosList;
-	    }*/
     
 
 
@@ -244,7 +247,15 @@ class CUP$Parser$actions {
           case 1: // s ::= PROGRAMA ID pr 
             {
               Object RESULT =null;
+		int eleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).left;
+		int eright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).right;
+		Token e = (Token)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-1)).value;
 		System.out.println("inicio.. " + contador); contador++;
+                                                arbol += "nodo"+contador +"  [ label =\""+e.getLexema()+"\"];\n";
+                                                String raiz = "nodo"+contador;
+                                                arbol +=  generador.ordenar(raiz, datosList); 
+                                                datosList.clear();
+                                            
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("s",0, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -262,7 +273,15 @@ class CUP$Parser$actions {
           case 3: // pr ::= pr FUNCION ID PAREIN va mv 
             {
               Object RESULT =null;
+		int eleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).left;
+		int eright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
+		Token e = (Token)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
 		System.out.println("pr.. funcion id parin va" + contador); contador++;
+                                            arbol += "nodo"+contador +"  [ label =\""+e.getLexema()+"\"];\n";
+                                            String raiz = "nodo"+contador;
+                                            arbol += generador.ordenar(raiz, datosList); 
+                                            datosList.clear();
+                                    
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("pr",1, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-5)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -271,7 +290,7 @@ class CUP$Parser$actions {
           case 4: // pr ::= pr BEGIN var 
             {
               Object RESULT =null;
-		System.out.println("pr.. begin" + contador); contador++;
+
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("pr",1, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
@@ -280,206 +299,232 @@ class CUP$Parser$actions {
           case 5: // pr ::= 
             {
               Object RESULT =null;
-		System.out.println("pr.. lambda" + contador); contador++;
+
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("pr",1, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 6: // va ::= PARAMETRO vva 
+          case 6: // mv ::= ID PAREIN xa c 
             {
               Object RESULT =null;
-		System.out.println("va.. parm vva " + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("va",2, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 7: // va ::= PAREOUT 
-            {
-              Object RESULT =null;
-		System.out.println("va.. parout" + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("va",2, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 8: // vva ::= COMA PARAMETRO vva 
-            {
-              Object RESULT =null;
-		System.out.println("vva..coma parm vva " + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("vva",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 9: // vva ::= PAREOUT 
-            {
-              Object RESULT =null;
-		System.out.println("vva..parout " + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("vva",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 10: // xa ::= PARAMETRO xxa 
-            {
-              Object RESULT =null;
-		System.out.println("xa..parm " + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xa",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 11: // xa ::= NUMEROS xxa 
-            {
-              Object RESULT =null;
-		System.out.println("xa.. num" + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xa",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 12: // xa ::= ID xxa 
-            {
-              Object RESULT =null;
-		System.out.println("xa.. id" + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xa",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 13: // xa ::= PAREOUT 
-            {
-              Object RESULT =null;
-		System.out.println("xa.. parout" + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xa",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 14: // xxa ::= COMA PARAMETRO xxa 
-            {
-              Object RESULT =null;
-		System.out.println("xxa..coma param " + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xxa",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 15: // xxa ::= COMA NUMEROS xxa 
-            {
-              Object RESULT =null;
-		System.out.println("xxa..coma num" + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xxa",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 16: // xxa ::= COMA ID xxa 
-            {
-              Object RESULT =null;
-		System.out.println("xxa.. coma id" + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xxa",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 17: // xxa ::= PAREOUT 
-            {
-              Object RESULT =null;
-		System.out.println("xxa.. parout" + contador); contador++;
-              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xxa",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
-            }
-          return CUP$Parser$result;
-
-          /*. . . . . . . . . . . . . . . . . . . .*/
-          case 18: // mv ::= ID PAREIN xa c 
-            {
-              Object RESULT =null;
-		System.out.println("mv.. di parin" + contador); contador++;
+		int eleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).left;
+		int eright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
+		Token e = (Token)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
+		 contador++;
+                                        String hijo = "nodo"+contador;
+                                        arbol += "nodo"+contador +"  [ label =\""+e.getLexema()+"\"];\n";
+                                        datosList.add(hijo); 
+                                         
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("mv",4, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 19: // c ::= PUNTOCOMA END 
+          case 7: // c ::= PUNTOCOMA END 
             {
               Object RESULT =null;
-		System.out.println("c.. puntocoma end" + contador); contador++;
+
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("c",5, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 20: // c ::= PUNTOCOMA mv 
+          case 8: // c ::= PUNTOCOMA mv 
             {
               Object RESULT =null;
-		System.out.println("c..puntocoma mv " + contador); contador++;
+
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("c",5, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 21: // c ::= mv 
+          case 9: // c ::= mv 
             {
               Object RESULT =null;
-		System.out.println("c.. mv" + contador); contador++;
+
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("c",5, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 22: // c ::= END 
+          case 10: // c ::= END 
             {
               Object RESULT =null;
-		System.out.println("c.. end" + contador); contador++;
+
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("c",5, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 23: // var ::= ID exp var 
+          case 11: // var ::= ID exp var 
             {
               Object RESULT =null;
+		int eleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).left;
+		int eright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)).right;
+		Token e = (Token)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-2)).value;
+		int e1left = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).left;
+		int e1right = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)).right;
+		Object e1 = (Object)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-1)).value;
 		System.out.println("var..id exp var " + contador); contador++;
+                                        String hijo = "nodo"+contador;
+                                        arbol += "nodo"+contador +"  [ label =\""+e.getLexema()+"\"];\n";
+                                        datosList.add(hijo);
+                                        if(!e1.toString().isEmpty()) {
+                                            contador++;
+                                            String dry = "nodo"+contador;
+                                            arbol += "nodo"+contador +"  [ label =\""+e1.toString()+"\"];\n";
+                                            arbol += hijo + " -> " + dry + ";\n";
+                                        }
+                                
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("var",6, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 24: // var ::= END 
+          case 12: // var ::= END 
             {
               Object RESULT =null;
-		System.out.println("var.. end" + contador); contador++;
+
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("var",6, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 25: // exp ::= DOSP ENTERO PUNTOCOMA 
+          case 13: // exp ::= DOSP ENTERO PUNTOCOMA 
             {
               Object RESULT =null;
-		System.out.println("exp..dosp entero pcoma " + contador); contador++;
+		System.out.println("exp..dosp entera " + contador);  RESULT = "";
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("exp",7, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 26: // exp ::= PAREIN xa PUNTOCOMA 
+          case 14: // exp ::= PAREIN xa PUNTOCOMA 
             {
               Object RESULT =null;
-		System.out.println("exp..parin xa puntocoma " + contador); contador++;
+		System.out.println("exp..paruntocoma " + contador);  RESULT = "";
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("exp",7, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
           /*. . . . . . . . . . . . . . . . . . . .*/
-          case 27: // exp ::= DOSP IGUAL ID PAREIN xa PUNTOCOMA 
+          case 15: // exp ::= DOSP IGUAL ID PAREIN xa PUNTOCOMA 
             {
               Object RESULT =null;
-		System.out.println("exo..dosp igual id parin xa putnocoa " + contador); contador++;
+		int eleft = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).left;
+		int eright = ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-3)).right;
+		Token e = (Token)((java_cup.runtime.Symbol) CUP$Parser$stack.elementAt(CUP$Parser$top-3)).value;
+		System.out.println("exo..dosa " + contador);  RESULT = e.getLexema();
               CUP$Parser$result = parser.getSymbolFactory().newSymbol("exp",7, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-5)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 16: // va ::= PARAMETRO vva 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("va",2, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 17: // va ::= PAREOUT 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("va",2, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 18: // vva ::= COMA PARAMETRO vva 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("vva",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 19: // vva ::= PAREOUT 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("vva",3, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 20: // xa ::= PARAMETRO xxa 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xa",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 21: // xa ::= NUMEROS xxa 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xa",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 22: // xa ::= ID xxa 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xa",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-1)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 23: // xa ::= PAREOUT 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xa",8, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 24: // xxa ::= COMA PARAMETRO xxa 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xxa",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 25: // xxa ::= COMA NUMEROS xxa 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xxa",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 26: // xxa ::= COMA ID xxa 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xxa",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top-2)), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
+            }
+          return CUP$Parser$result;
+
+          /*. . . . . . . . . . . . . . . . . . . .*/
+          case 27: // xxa ::= PAREOUT 
+            {
+              Object RESULT =null;
+
+              CUP$Parser$result = parser.getSymbolFactory().newSymbol("xxa",9, ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), ((java_cup.runtime.Symbol)CUP$Parser$stack.peek()), RESULT);
             }
           return CUP$Parser$result;
 
